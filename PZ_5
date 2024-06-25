@@ -1,1 +1,23 @@
+import random
+
+
+def has_duplicate_digits(number):
+   digits = str(number)
+   return len(set(digits)) != len(digits)
+
+
+def generate_four_digit_number():
+   return random.randint(1000, 9999)
+
+
+# генерация четырехзначного числа
+random_number = generate_four_digit_number()
+print("Сгенерированное число:", random_number)
+
+
+# проверка наличия одинаковых цифр
+if has_duplicate_digits(random_number):
+   print("В числе есть одинаковые цифры.")
+else:
+   print("В числе нет одинаковых цифр.")
 
