@@ -1,1 +1,13 @@
 
+
+while True: # проверка исключений
+    try:
+        n = int(input("Введите количество секунд: "))
+    except ValueError:
+        print("Что-то пошло не так")
+        continue
+    break
+
+lastHour = n % 3600
+
+print(f"Количество секунд: {lastHour}")
