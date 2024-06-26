@@ -1,1 +1,17 @@
+# В последовательности на n целых элементов найти произведение элементов средней трети.
+
+
+import random
+from functools import reduce
+r = random.randint(1,10)
+l = []
+[l.append((random.randint(0,10)))for i in range(r)]
+a = len(l)//3
+b = len(l)*2//3
+print(l)
+ln = l[a:b]
+
+
+result = reduce(lambda x, y: x*y, ln)
+print(result)
 
