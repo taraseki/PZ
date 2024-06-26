@@ -1,1 +1,30 @@
 
+#Имеется список студентов группы, в котором все имена различны. Определить, есть ли в
+#группе студент, который побывал в гостях у всех студентов. (Для каждого студента
+#составить список из множества побывавших у него в гостях друзей, причем хозяина в этот
+#список не включать).
+
+
+student_guests = {
+   'Игорь': {'Виктор', 'Геворг', 'Влад Шат'},
+   'Влад Шат': {'Виктор', 'Дима', 'Олег'},
+   'Геворг': {'Виталя', 'Дима', 'Адольф'}
+}
+
+
+def find_guest_connections(students):
+   for student, guests in students.items():
+       connections = set()
+       for st, g in students.items():
+           if student != st and st not in guests:
+               connections.add(st)
+       if len(connections) == len(students) - 1:
+           return student
+   return None
+
+
+result = find_guest_connections(student_guests)
+if result:
+   print(f"Студент {result} побывал у всех остальных студентов в гостях.")
+else:
+   print("Нет студента, который бы побывал у всех в гостях.")
