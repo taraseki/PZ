@@ -1,1 +1,83 @@
+# Приложение СТРАХОВАЯ КОМПАНИЯ для некоторой организации.
+# БД должна содержать таблицу Договор со следующей структурой записи:
+# дата заключения, страховая сумма, вид страхования, тарифная ставка и филиал, в котором заключался договор.
+
+
+import sqlite3 as sq
+
+
+# with sq.connect('insurance.db') as con:
+#     cur = con.cursor()
+#     cur.execute("DROP TABLE IF EXISTS agreement")
+#     cur.execute("""CREATE TABLE IF NOT EXISTS agreement(
+#     date DATE NOT NULL,
+#     sum_of_insurance DECIMAL,
+#     insurance_type TEXT,
+#     tariff_rate DECIMAL,
+#     filial DECIMAL)
+#     """)
+
+
+def insrt():
+   inst = tuple(input('введите дату(ГГГГ-ММ-ДД),страховую сумму,вид страхования,тарифную ставку,и филиал через запятую\n').split(','))
+   with sq.connect('insurance.db') as con:
+       cur = con.cursor()
+       cur.executemany("INSERT INTO agreement VALUES(?,?,?,?,?)", [inst])
+
+
+
+
+
+
+
+
+def select1():
+   with sq.connect('insurance.db') as con:
+       cur = con.cursor()
+       cur.execute("SELECT * FROM agreement WHERE sum_of_insurance>350000")
+       result = cur.fetchall()
+       print(result)
+
+
+def delete1():
+   with sq.connect('insurance.db') as con:
+       cur = con.cursor()
+       cur.execute("DELETE FROM agreement WHERE insurance_type='медецинское'")
+
+
+def update1():
+   with sq.connect('insurance.db') as con:
+       cur = con.cursor()
+       cur.execute('UPDATE agreement SET insurance_type="медецинское" WHERE sum_of_insurance>50000')
+
+
+def select2():
+   with sq.connect('insurance.db') as con:
+       cur = con.cursor()
+       cur.execute("SELECT * FROM agreement WHERE filial='Главное здание'")
+       result = cur.fetchall()
+       print(result)
+def delete2():
+   with sq.connect('insurance.db') as con:
+       cur = con.cursor()
+       cur.execute("DELETE FROM agreement WHERE date='2000-01-01'")
+def update2():
+   with sq.connect('insurance.db') as con:
+       cur = con.cursor()
+       cur.execute('UPDATE agreement SET insurance_type="ОСАГО" WHERE tariff_rate>10000')
+def select3():
+   with sq.connect('insurance.db') as con:
+       cur = con.cursor()
+       cur.execute("SELECT * FROM agreement WHERE insurance_type='ОСАГО'")
+       result = cur.fetchall()
+       print(result)
+def delete3():
+   with sq.connect('insurance.db') as con:
+       cur = con.cursor()
+       cur.execute("DELETE FROM agreement WHERE filial='Филиал №13'")
+def update3():
+   with sq.connect('insurance.db') as con:
+       cur = con.cursor()
+       cur.execute('UPDATE agreement SET date="2022-12-22" WHERE tariff_rate<9999.99')
+insrt()
 
