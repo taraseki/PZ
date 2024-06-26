@@ -1,1 +1,51 @@
+# С начала суток прошло N секунд (N — целое).Найти количество секунд, прошедших с начала последней минуты.
+
+
+from tkinter import messagebox
+
+
+
+
+def calculate_last_minutes():
+   try:
+       n = int(seconds_entry.get())
+       last_minutes = n % 60
+       result_label.config(text="Секунд с начала последней минуты: {}".format(last_minutes))
+   except ValueError:
+       messagebox.showerror("Ошибка", "Пожалуйста, введите корректное число секунд.")
+
+
+
+
+root = Tk()
+root.title("Подсчет секунд с начала последней минуты")
+
+
+
+
+seconds_label = Label(root, text="Введите количество секунд n:")
+seconds_label.pack()
+
+
+
+
+seconds_entry = Entry(root)
+seconds_entry.pack()
+
+
+
+
+calculate_button = Button(root, text="Посчитать", command=calculate_last_minutes)
+calculate_button.pack()
+
+
+
+
+result_label = Label(root, text="")
+result_label.pack()
+
+
+
+
+root.mainloop()
 
