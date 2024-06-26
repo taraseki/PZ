@@ -1,1 +1,15 @@
 
+# Из исходного текстового файла (expansion.txt) выбрать имена файлов,
+# соответствующие типам: .xls, .xml, .html, .css.
+# Посчитать количество полученных элементов.
+
+
+import re
+
+
+f = open('expansion.txt','r',encoding='UTF-8')
+
+
+files = re.findall(r'\w+[.][xch][lsmt]\w+',f.read())
+print(files)
+print(len(files))
