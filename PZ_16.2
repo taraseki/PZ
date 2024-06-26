@@ -1,1 +1,54 @@
+# Создание базового класса "Транспортное средство" и его наследование для создания классов "Автомобиль" и "Мотоцикл".
+# В классе "Транспортное средство" будут общие свойства,
+# такие как максимальная скорость и количество колес, а классы наследники будут иметь свои уникальные свойства и методы.
+
+
+class Transport:
+   def __init__(self, max_speed, wheels):
+       self.max_speed = max_speed
+       self.wheels = wheels
+
+
+   def move(self):
+       print("Moving at a speed of", self.max_speed)
+
+
+class Car(Transport):
+   def __init__(self, max_speed, wheels, brand, color):
+       super().__init__(max_speed, wheels)
+       self.brand = brand
+       self.color = color
+
+
+   def honk(self):
+       print("Beep beep!")
+
+
+class Motorcycle(Transport):
+   def __init__(self, max_speed, wheels, brand, type):
+       super().__init__(max_speed, wheels)
+       self.brand = brand
+       self.type = type
+
+
+   def wheelie(self):
+       print("Performing a wheelie!")
+
+
+# Создаем объекты для классов "Автомобиль" и "Мотоцикл"
+car = Car(200, 4, "Tesla", "red")
+motorcycle = Motorcycle(150, 2, "Harley Davidson", "cruiser")
+
+
+# Вызываем методы и обращаемся к свойствам объектов
+car.move()
+car.honk()
+print(f"Car brand: {car.brand}, color: {car.color}")
+print(f"Car max speed: {car.max_speed}, number of wheels: {car.wheels}")
+
+
+motorcycle.move()
+motorcycle.wheelie()
+print(f"Motorcycle brand: {motorcycle.brand}, type: {motorcycle.type}")
+print(f"Motorcycle max speed: {motorcycle.max_speed}, number of wheels: {motorcycle.wheels}")
 
