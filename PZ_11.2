@@ -1,1 +1,25 @@
 
+# Из предложенного текстового файла (text18-18.txt) вывести на экран его содержимое,
+# количество знаков пунктуации в первых четырёх строках.
+# Сформировать новый файл, в который поместить текст в стихотворной форме выведя строки в обратном порядке.
+
+
+f1 = open('text18-18.txt', 'r', encoding='Utf-8')
+# print(f1.read())
+# print(f1.read())
+marks = '''!()-[]{};?@#$%…:'"\\,./^&amp;*_—'''
+s = 0
+with f1 as file:
+   for _ in range(4):
+       line = file.readline()
+       for i in line:
+           # print(i)
+           if i in marks:
+               s+=1
+f1.close()
+with open('text18-18.txt', 'r', encoding='Utf-8') as file:
+   lines = file.readlines()
+   lines.reverse()
+   for line in lines:
+       print(line, end='')
+print(s)
