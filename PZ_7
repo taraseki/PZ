@@ -1,1 +1,25 @@
 
+# Дана строка. Преобразовать в ней все строчные буквы (как латинские ,так и русские) в прописные,
+# а прописные в строчные.
+
+
+
+
+def swap_case(s):
+  result = ""
+  for char in s:
+      if char.isupper():
+          result += char.lower()
+      elif char.islower():
+          result += char.upper()
+      else:
+          result += char
+  return result
+
+
+
+
+# Пример
+string = "Hello, World! Привет, мир!"
+result = swap_case(string)
+print(result)  # Вывод: hELLO, wORLD! пРИВЕТ, МИР!
