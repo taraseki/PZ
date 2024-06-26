@@ -1,1 +1,22 @@
 
+
+# В матрице найти среднее арифметическое элементов последних двух столбцов.
+
+
+import random
+
+
+matrix = [[random.randint(1, 100) for _ in range(3)] for _ in range(3)]
+
+
+total_sum = sum(sum(row) for row in [row[1:] for row in matrix])
+total_elements = sum(len(row[1:]) for row in matrix)
+
+
+average = total_sum / total_elements
+
+
+print("Матрица:")
+for row in matrix:
+   print(row)
+print("Среднее арифметическое двух последних столбцов:", average)
