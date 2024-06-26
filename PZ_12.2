@@ -1,1 +1,20 @@
 
+# сформировать генератор (yield), который преобразует все буквенные
+# символы в строчные
+
+
+from string import ascii_uppercase
+def preo(sti):
+
+
+   yield from [b.lower() if b in ascii_uppercase else b for b in sti]
+
+
+a = preo(input('Напишите символы: '))
+
+
+fsti = ''
+fsti += ''.join(a)
+
+
+print(fsti)
