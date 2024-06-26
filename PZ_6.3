@@ -1,1 +1,28 @@
 
+# Дан список размера N, все элементы которого, кроме первого, упорядочены по возрастанию.
+# Сделать список упорядоченным, переместив первый элемент на новую позицию.
+
+
+def reorder_list(arr):
+  if len(arr) < 2:
+      return arr
+
+
+
+
+  first_element = arr[0]
+  arr = arr[1:]
+  pos = 0
+  for i in range(len(arr)):
+      if arr[i] < first_element:
+          pos = i + 1
+  arr.insert(pos, first_element)
+
+
+  return arr
+
+
+# Пример
+arr = [3, 5, 7, 6, 8, 9]
+result = reorder_list(arr)
+print(result)  # Вывод: [3, 5, 6, 7, 8, 9]
