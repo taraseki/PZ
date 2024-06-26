@@ -1,1 +1,16 @@
+# Создайте класс «Круг», который имеет атрибут радиуса и методы для вычисления площади,
+# длины окружности и диаметра.
+
+
+class Circle:
+   def __init__(self,r):
+       self.r = r
+   def area(self):
+       return self.r**2*3.14
+   def len(self):
+       return self.r*2*3.14
+   def diameter(self):
+       return self.r*2
+c = Circle(200)
+print(c.area())
 
