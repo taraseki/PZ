@@ -1,1 +1,15 @@
+#В матрице, элементы кратные 3 увеличить в 3 раза.
+
+
+import random
+
+
+matrix = [[random.randint(1, 100) for _ in range(3)] for _ in range(3)]
+
+
+matrix = [[num * 3 if num % 3 == 0 else num for num in row] for row in matrix]
+
+
+for row in matrix:
+   print(row)
 
